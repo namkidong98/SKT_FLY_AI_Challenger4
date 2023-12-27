@@ -34,5 +34,17 @@
 
 <br>
 
-## 05. Keras기초_당뇨병_데이터.ipynb
+## 05. Spam_Classification.ipynb
 - 사용하는 파일: spam.csv, spam.jpg
+- 스팸 메일 여부와 메일 내용으로 이루어진 'spam.csv'를 로드한다
+- 전처리 과정: 알파벳 이외의 단어 제거, 소문자 변환, 토큰화(word_tokenize), 불용어(stopwords) 처리, 어간화(Stemming)
+- TfidfVectorizer로 텍스트 데이터를 TF-IDF 행렬로 변환   
+  cf) TF-IDF: "Term Frequency-Inverse Document Frequency"의 약자, 문서에서 어떤 단어가 얼마나 중요한지를 나타내는 통계적인 척도
+-  DecisionTree, RandomForest 모델로 학습하고 spam 여부를 예측(정확도 98%)
+![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d704004e-1198-4488-aeee-8659750db642)
+
+<br>
+
+-  Spam인 메일의 텍스트 전체를 대상으로 WordCloud를 그려 어떤 어휘가 스팸 메일에서 자주 등장하는지 체크
+![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bae640de-b30a-408c-add1-2f69f2816d84)
+
