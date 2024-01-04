@@ -37,3 +37,13 @@ git config --global (명령어)
 git init  # 로컬 저장소 만들기
 ```
 <img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d41a8c28-ca04-4342-9378-06c6d4aa7140">
+
+<br>
+
+## Hyper-V
+- Microsoft Hyper-V : x64 시스템을 위한 하이퍼바이저 기반의 가상화 시스템, Windows Pro(Windows11)에서는 기본적으로 제공된다
+- Windows 기능 켜기/끄기 안의 Hyper-V를 체크해준다
+
+<img width="275" alt="1" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/40be9cea-4379-49e5-8f55-4879348a47ef">
+
+- 재부팅 후 'Hyper-V 관리자'를 통해 설치한 Ubuntu iso를 사용하여 가상 머신을 설치한다
