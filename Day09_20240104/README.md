@@ -19,7 +19,16 @@
 <img width="500" alt="2_sourcetree" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fa7180fc-8d0c-45f2-9041-49d5c7c2c9fb">
 
 - VS Code : Material Icon Theme, WSL extension 설치하기
-  
+
+## Hyper-V
+- Microsoft Hyper-V : x64 시스템을 위한 하이퍼바이저 기반의 가상화 시스템, Windows Pro(Windows11)에서는 기본적으로 제공된다
+- Windows 기능 켜기/끄기 안의 Hyper-V를 체크해준다
+
+<img width="275" alt="1" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/40be9cea-4379-49e5-8f55-4879348a47ef">
+
+- 재부팅 후 'Hyper-V 관리자'를 통해 설치한 Ubuntu iso를 사용하여 가상 머신을 설치한다
+
+<br>
 
 ## Git
 #### 1) Global 
@@ -40,10 +49,10 @@ git init  # 로컬 저장소 만들기
 
 <br>
 
-## Hyper-V
-- Microsoft Hyper-V : x64 시스템을 위한 하이퍼바이저 기반의 가상화 시스템, Windows Pro(Windows11)에서는 기본적으로 제공된다
-- Windows 기능 켜기/끄기 안의 Hyper-V를 체크해준다
+- Material Icon Theme을 설치하면 파일 옆에 'U'라는 표시가 뜨고 add한 파일에는 'A'가 표시된다
+- U (Untracked): Git 저장소에 아직 추적되지 않은(untracked) 파일
+- A (Added):  Git 저장소에 새로 추가된(added) 파일
 
-<img width="275" alt="1" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/40be9cea-4379-49e5-8f55-4879348a47ef">
+<img width="425" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bd510687-17c9-4a63-a326-5867d3456bdc">
+<img width="392" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4c3dd6fa-f00b-4853-9c03-f636d0189a69">
 
-- 재부팅 후 'Hyper-V 관리자'를 통해 설치한 Ubuntu iso를 사용하여 가상 머신을 설치한다
