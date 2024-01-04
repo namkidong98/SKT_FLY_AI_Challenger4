@@ -1,11 +1,11 @@
 ## 01. Decision_Tree.ipynb
 - Confusion Matrix에 대해 학습한다(정확도, 정밀도, 재현율, f1스코어)
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e066d9bc-7992-4c46-9c84-3561715a08b0)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e066d9bc-7992-4c46-9c84-3561715a08b0">
 
 - DecisionTree 모델에 대해 학습하고 하이퍼 파라미터(max_depth 등)에 대해 학습한다
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6016e771-f48e-4355-9b4d-1dc0561238ae)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6016e771-f48e-4355-9b4d-1dc0561238ae">
 
 <br> 
 
@@ -14,9 +14,9 @@
 - 데이터의 구조를 파악하고 전처리, 스케일링을 진행한다
 - Species를 Target으로 하여 DecisionTree 모델을 학습하여 예측한다(96% 정확도)
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/0d69bb2f-1bf3-43dc-bd6b-13b9da864b3b)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/0d69bb2f-1bf3-43dc-bd6b-13b9da864b3b">
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a813e17d-f2c1-418d-baaa-b4385fc837c6)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a813e17d-f2c1-418d-baaa-b4385fc837c6">
 
 <br> 
 
@@ -27,13 +27,13 @@
    cf) 성능이 높은 분류기만 선택되고 나머지는 배제되는 문제가 발생
 - Soft Voting : 분류기의 확률을 더하고 각각 평균을 내서 확률이 제일 높은 값으로 결과값을 선정
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a9adc998-5534-4f52-9c26-c2da7dd4ac77)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a9adc998-5534-4f52-9c26-c2da7dd4ac77">
 
 <br>
 
 - voting과 다르게 서로 같은 알고리즘의 분류기를 조합   
    cf) RandomForest는 DecisionTree를 bagging으로 조합한 모델이다
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a91e149d-9f54-4165-a710-e2c24de52fff)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a91e149d-9f54-4165-a710-e2c24de52fff">
 
 <br>
 
@@ -46,7 +46,7 @@ for classifier in classifiers:
   name = classifier.__class__.__name__
   print(f"{name} 정확도 : {accuracy_score(y_test, y_pred)}")
 ```
-<img width="244" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/55dcbeca-4310-46b2-ab78-ec1e29bd2d48">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/55dcbeca-4310-46b2-ab78-ec1e29bd2d48">
 
 
 <br> 
@@ -55,15 +55,15 @@ for classifier in classifiers:
 - 사용하는 파일: Boston_house.csv
 - Boxplot을 통해 Outlier를 확인하고 전체 데이터에서 각 Column별 이상치 데이터의 개수를 출력한다
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5eb8f1f2-3b38-4e11-bcea-f5eaa56f0aa7)
+<img width="800" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5eb8f1f2-3b38-4e11-bcea-f5eaa56f0aa7">
 
 - MinMaxScaler로 스케일링을 하고 regplot을 통해 각각의 Column과 target 사이의 상관성을 시각화한다
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d8014edb-3d59-4823-946d-de6ed81a1499)
+<img width="800" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d8014edb-3d59-4823-946d-de6ed81a1499">
 
 - 상관계수를 히트맵으로 시각화한 것과 비교하면 확실히 Target과 상관계수가 높은 Column일수록 추세선의 기울기가 가파른 것을 확인할 수 있다
 
-![image](https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/c2e2a93e-f822-4aac-9f79-0d54811744b3)
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/c2e2a93e-f822-4aac-9f79-0d54811744b3">
 
 
 <br> 
