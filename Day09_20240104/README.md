@@ -20,6 +20,12 @@
 
 - VS Code : Material Icon Theme, WSL extension 설치하기
 
+- WSL Ubuntu : Microsoft Appstore에서 다운로드, Windows PowerShell에서 Ubuntu terminal을 열 수 있음
+
+<img width="500" alt="3_WSL_ubuntu" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ecf8350f-d0ff-4816-8b38-8c26674b22a0">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bab60bc6-2352-450b-bf67-ce0f85d94028">
+
+
 ## Hyper-V
 - Microsoft Hyper-V : x64 시스템을 위한 하이퍼바이저 기반의 가상화 시스템, Windows Pro(Windows11)에서는 기본적으로 제공된다
 - Windows 기능 켜기/끄기 안의 Hyper-V를 체크해준다
@@ -53,6 +59,18 @@ git init  # 로컬 저장소 만들기
 - U (Untracked): Git 저장소에 아직 추적되지 않은(untracked) 파일
 - A (Added):  Git 저장소에 새로 추가된(added) 파일
 
-<img width="425" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bd510687-17c9-4a63-a326-5867d3456bdc">
-<img width="392" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4c3dd6fa-f00b-4853-9c03-f636d0189a69">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bd510687-17c9-4a63-a326-5867d3456bdc">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4c3dd6fa-f00b-4853-9c03-f636d0189a69">
 
+- .gitignore 파일 내부에 있는 파일명은 git의 track에서 벗어나게 된다   
+  cf) 관련 링크: https://git-scm.com/docs/gitignore 
+<img width="650" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5e524cc9-6181-495f-a249-fb872da01e67">
+
+```
+git add (파일명)        # 파일명을 commit할 대상으로 추가
+git add .              # 모든 파일을 commit할 대상으로 추가
+git status             # 현재 디렉토리의 파일들의 상태를 체크
+git commit             # add한 파일들을 commit
+```
+
+#### 3) Remote Repository
