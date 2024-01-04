@@ -69,8 +69,13 @@ git init  # 로컬 저장소 만들기
 ```
 git add (파일명)        # 파일명을 commit할 대상으로 추가
 git add .              # 모든 파일을 commit할 대상으로 추가
+git rm (파일명)         # 해당 파일을 삭제
 git status             # 현재 디렉토리의 파일들의 상태를 체크
-git commit             # add한 파일들을 commit
+git commit             # 파일들의 변화(add, modified, deleted...)를 commit
+git log                # history가 나오고 hash 값을 통해 나중에 복원할 수도 있다
 ```
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/baec1069-35fd-41e6-869b-60eda1e9c87f">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fc27f055-c2bc-4dab-a1f0-c095aca65170">
+
 
 #### 3) Remote Repository
