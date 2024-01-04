@@ -56,8 +56,12 @@ git init  # 로컬 저장소 만들기
 <br>
 
 - Material Icon Theme을 설치하면 파일 옆에 'U'라는 표시가 뜨고 add한 파일에는 'A'가 표시된다
-- U (Untracked): Git 저장소에 아직 추적되지 않은(untracked) 파일
-- A (Added):  Git 저장소에 새로 추가된(added) 파일
+```
+  U (Untracked): Git 저장소에 아직 추적되지 않은(untracked) 파일
+  A (Added):  Git 저장소에 새로 추가된(added) 파일
+  M (Modified): Git 저장소에서 이전 commit에서 추적되었지만, 현재 변경 사항이 있는 파일
+  D (Deleted): Git 저장소에서 현재 작업 디렉토리에서 삭제된 파일
+```
 
 <img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bd510687-17c9-4a63-a326-5867d3456bdc">
 <img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4c3dd6fa-f00b-4853-9c03-f636d0189a69">
@@ -66,6 +70,9 @@ git init  # 로컬 저장소 만들기
   cf) 관련 링크: https://git-scm.com/docs/gitignore 
 <img width="650" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5e524cc9-6181-495f-a249-fb872da01e67">
 
+<br> 
+
+#### 3) Basic Command
 ```
 git add (파일명)        # 파일명을 commit할 대상으로 추가
 git add .              # 모든 파일을 commit할 대상으로 추가
@@ -77,5 +84,13 @@ git log                # history가 나오고 hash 값을 통해 나중에 복�
 <img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/baec1069-35fd-41e6-869b-60eda1e9c87f">
 <img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fc27f055-c2bc-4dab-a1f0-c095aca65170">
 
+<br>
 
-#### 3) Remote Repository
+- git revert : 
+```
+git reset --hard (돌아갈 commit의 hash값)   # 해당 commit으로 돌아가면서 사이에 있었던 commit log들을 삭제한다
+git revert (돌아갈 commit의 hash값)         # reset과 다르게 이전 commit을 삭제하지 않고, 변경 이력을 유지하면서 특정 commit의 효과를 취소
+```
+
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/bcd4f613-fa18-459a-af99-5addf7f668e5">
+
