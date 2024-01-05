@@ -84,5 +84,27 @@ git branch -M main                        # 기본 Branch 이름을 main으로 �
 git remote                                # 원격 목록 확인
 git remote -v                             # 원격 목록 자세히 확인
 git remote remove (origin 등 원격 이름)    # 원격 지우기
-
 ```
+
+## Flask 실습
+#### 1) flask로 만들어진 app.py를 실행
+
+<img width="250" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a4d4aa16-20d0-4e4d-a080-932bf9760f29">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4fe086ff-6244-4890-bc80-435d484b9f02">
+
+<br> 
+
+#### 2) 로컬 IP로 접속 시도
+- 로컬 호스트(localhost)를 나타내는 특별한 IP 주소: **127.0.0.1**
+- 외부에서 접근 불가, 가상 컴퓨터에서 접속을 시도하니 Error가 발생한 것을 확인할 수 있다
+<img width="400" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/3c2b9cd0-6805-4280-8dde-b7647dcee6ea">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/121f02ef-8220-4215-a3fe-8ddb9987e095">
+
+<br>
+
+#### 3) 다른 IP로 접속 시도
+- 특정 네트워크 상의 다른 컴퓨터나 장치를 가리키는 IP 주소
+- 로컬 네트워크에서 다른 기기에 있는 서버에 접속하는 경우 사용, 외부에서도 접근 가능
+<img width="400" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5a73b8d6-c74d-4cee-b975-c2eaf0d21174">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/57ba098e-3ec0-4657-bf53-f4eda2b50fe4">
+
