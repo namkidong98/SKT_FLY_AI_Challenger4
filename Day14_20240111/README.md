@@ -346,3 +346,5 @@ docker push kidong98/my-image:v1.0.0          # docker Hub에 tag되어 있는 �
 ```
 
 <img width="587" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60687311-41c5-4f49-8bad-f51d60957923">
+
+- Docker Hub에서 확인하면 image가 repository에 업로드된 것을 확인할 수 있다
