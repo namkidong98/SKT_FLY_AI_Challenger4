@@ -89,19 +89,167 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 sudo docker run hello-world
 ```
 
-#### abc
+<br><br>
+
+## Docker Image 불러오기
+
 <img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ebee5075-068a-4641-81e4-84892de5bd30">
 
+```
+sudo docker pull ubuntu:18.04    # 18.04 버전의 ubuntu image를 로컬 시스템에 내려받음
+sudo docker images               # 현재 시스템에 로컬로 저장된 Docker 이미지 목록을 표시
+```
 
-Ubuntu 
+- docker pull : Docker 이미지를 Docker Hub 또는 다른 Docker 레지스트리로부터 로컬 시스템에 내려받습니다
+
+<br><br>
+
+## Docker Container 생성 및 Process 실행
+
 ```
-sudo docker run -it --name demo1 ubuntu:18.04 /bin/bash
+docker run -it --name demo1 ubuntu:18.04 /bin/bash 
+ 
+docker run -it -d --name demo2 ubuntu:18.04 
+
+docker exec -it demo2 /bin/bash
+ 
+docker run --name demo3 -d busybox sh -c "while true; do $(echo date); sleep 1; done" 
+ 
+docker logs demo3
+
+docker logs demo3 -f 
 ```
 
+## Docker Container 관리
+
+<img width="937" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f82f9250-cf97-4d1a-93d3-34ccbbd637ca">
 
 ```
-sudo docker run -it -d --name demo2 ubuntu:18.04
+sudo docker ps               # Docker Container의 '현재 실행 중인' 목록을 출력, ps(processes)의 약어
+
+sudo docker ps -a            # -a 옵션으로 중지되어 있는 목록까지도 출력 
+
+sudo docker stop (name)      # 실행 중인 컨테이너의 프로세스를 중지하고 컨테이너의 상태를 'Exited'로 변경
+                             # 나중에 다시 실행시킬 수 있음
+
+sudo docker rm (name)        # 중지된 컨테이너를 삭제할 때 사용, stop을 먼저 하고 사용해야 함
 ```
-- -it : iteractive 옵션
-- -d : demon 옵션
-- 
+
+<br>
+
+## Docker Image 삭제
+
+<img width="656" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4d2f5c40-f53e-4d1f-9baa-96323f503f3c">
+
+```
+sudo docker images           # 현재 Docker에 
+
+sudo docker rmi (image name) # 해당 이름의 image를 삭제
+```
+
+- 위의 명령어를 통해 image도 Docker에서 삭제할 수 있다
+- 이 때 ubuntu와 같이 버젼이 있는 경우에는 버젼을 옆에 적어줘야 삭제가 제대로 진행된다
+
+<br>
+
+## Docker Image 생성
+
+- Docker Image : 어떤 애플리케이션에 대해, 단순히 코드 뿐만 아니라 그 애플리케이션과 dependent한 모든 것을 함께 packaging한 데이터
+- Docker File : 사용자가 Docker Image를 쉽게 만들 수 있도록 제공하는 템플릿
+
+```
+cd $HOME                # home directory로 이동
+pwd                     # 현재 디렉토리 확인
+mkdir docker-practice   # docker-practice라는 폴더 생성
+cd docker-practice      # docker-practice 폴더로 이동
+touch Dockerfile        # Dockerfile이라는 빈 파일을 생성
+ls                      # 해당 디렉토리의 파일 목록을 출력
+```
+
+## Dockerfile 기본 명령어
+#### 1. FROM
+- Dockerfile이 Base Image로 어떠한 이미지를 사용할 것인지를 명시하는 명령어
+
+```python
+FROM <image>[:<tag>] [AS <name>]
+
+# example
+FROM ubuntu
+FROM ubuntu:18.04
+FROM nginx:latest AS ngx
+```
+
+#### 2. COPY
+- <src>의 파일 혹은 디렉토리를 <dest> 경로에 복사하는 명령어
+
+```python
+COPY <src> ... <dest>
+
+# example
+COPY a.txt /some-directory/b.txt       # 파일 복사
+COPY my-directory /some-directory-2    # 디렉토리 복사
+```
+
+#### 3. RUN
+- 명시한 커맨드를 Docker Container에서 실행하는 것을 명시하는 명령어
+- 환경을 설정하기 위해 실행할 때 한 번 시행되는 명령어
+
+```python
+RUN <command>
+RUN ["executable-command", "parameter1", "parameter2"]
+
+# example
+RUN pip install torch
+RUN pip install -r requirements.txt
+```
+
+#### 4. CMD
+- 명시한 커맨드를 Docker Container가 시작될 때, 실행하는 것을 명시하는 명령어
+- 하나의 Docker Image에서는 하나의 CMD만 실행할 수 있다는 점에서 RUN 명령어와 다르다
+
+```python
+CMD <command>
+CMD ["executable-command", "parameter1", "parameter2"]
+
+# example
+CMD python main.py
+```
+
+#### 5. WORKDIR
+- 이후 작성될 명령어를 Container 내의 어떤 디렉토리에서 수행할 것인지를 명시하는 명령어
+- 해당 디렉토리가 없다면 생성한다
+
+```python
+WORKDIR /path/to/workdir
+
+# example
+WORKDIR /home/demo
+```
+
+#### 6. ENV
+- Container 내부에서 지속적으로 사용될 Environment Variable(환경 변수)의 값을 설정하는 명령어
+
+```python
+ENV <key> <value>
+ENV <key>=<value>
+
+# example
+RUN local-gen ko_KR.UTF-8
+ENV LANG ko_KR.UTF-8
+ENV LANGUAGE ko_KR.UTF-8
+ENV LC_ALL ko_KR.UTF-8
+```
+
+#### 7. EXPOSE
+- 컨테이너에서 뚫어줄 port/protocol을 지정할 수 있다
+- protocol을 지정하지 않으면 TCP가 default로 설정된다
+
+```python
+EXPOSE <port>
+EXPOSE <port>/<protocol>
+
+# example
+EXPOSE 8080
+```
+
+## abc
