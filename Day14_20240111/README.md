@@ -152,7 +152,7 @@ sudo docker rmi (image name) # 해당 이름의 image를 삭제
 
 <br>
 
-## Docker Image 생성
+## Docker Image, Dockerfile
 
 - Docker Image : 어떤 애플리케이션에 대해, 단순히 코드 뿐만 아니라 그 애플리케이션과 dependent한 모든 것을 함께 packaging한 데이터
 - Docker File : 사용자가 Docker Image를 쉽게 만들 수 있도록 제공하는 템플릿
@@ -251,5 +251,98 @@ EXPOSE <port>/<protocol>
 # example
 EXPOSE 8080
 ```
+#### example
 
-## abc
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/763a3fb7-0763-4a15-8914-18b6109bacfc">
+
+<br><br>
+
+## Build Docker Image from Dockerfile
+
+<img width="850" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5305db68-26e7-4260-b4dd-be7c9b4397c3">
+
+```python
+sudo docker build -t my-image:v1.0.0 . # 마지막 .은 경로를 말하는 것이므로 한 칸 뛰고 적어야 한다
+
+ls -al                  # 디렉토리에 파일로 만들어진 것이 아니다
+sudo docker images      # image로 만들어진 것이다
+```
+
+- Docker Image를 빌드하고 나면 디렉토리에 생성되는 것이 아니다(ls -al을 해도 나오는게 없다)
+- sudo docker images를 하면 생성된 Docker Image가 목록에 있는 것을 발견할 수 있다
+
+<img width="520" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b9ed79d6-6fdd-42ae-a575-f8a9323832ff">
+
+```python
+sudo docker run my-image:v1.0.0    # 생성했던 image를 실행시킨다
+```
+
+- my-image의 실행 결과 CMD ["echo", "Hello World"]가 실행되어 출력되는 것을 확인할 수 있다
+- 원래는 이런식으로 사용하지 않지만 build와 run이 제대로 작동하는지 확인하기 위한 용도의 example
+
+<br><br>
+
+## Docker Image Registry(저장소)
+
+- Registry를 만들면 해당 저장소에 만든 이미지를 올릴 수 있다
+
+<br>
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d59b594c-6479-42c2-9aa1-99e4ac0f4c1a">
+
+```python
+docker run -d -p 5000:5000 --name registry registry
+# 내부 5000, 외부 5000으로 port를 열어준다 
+# registry를 registry라는 이름으로 가져오겠다
+```
+
+- Docker registry를 띄운다
+
+<br>
+
+## Docker Image Tag & Push
+
+### 1. localhost에 tag & push
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/3a662d54-065c-49ff-8335-4e1631552350">
+<img width="550" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/05661fa4-f624-4365-b19a-c76f2c7513e6">
+
+```python
+docker tag my-image:v1.0.0 localhost:5000/my-image:v1.0.0     # tag를 다는 코드
+
+sudo docker images | grep my-image                            # 전체 images들 중 my-image를 포함한 부분을 추출
+```
+- 내 로컬 시스템에 있는 my-image를 방금 생성한 registry를 바라보도록 tag한다
+- tag를 어디로 하고 push하는 지에 따라 만든 image를 어디에 연결할 것인지를 정할 수 있다
+- docker images로 전체 이미지 목록을 보면 registry, my-image, localhost:5000/my-image가 있는 것을 볼 수 있다
+
+<br>
+
+<img width="685" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/608b1c2a-a736-44fe-a18b-3eb5cc3c2477">
+
+```python
+docker push localhost:5000/my-image:v1.0.0  
+```
+- 위의 명령어를 통해 push를 진행할 수 있다
+
+### 2. Docker Hub에 tag & push
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d1f7a0b8-6b24-4ffb-8d28-a03f43922148">
+
+```python
+docker login                                                # docker에 로그인을 시도
+                                                            # email이 아니라 username과 접속에 필요한 password를 사용
+
+sudo docker tag my-image:v1.0.0 kidong98/my-image:v1.0.0    # docker hub로 tag
+
+sudo docker images                                          # images 목록에 kidong98/my-image:v1.0.0이 생긴 것을 볼 수 있다
+```
+
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/9b28551e-ae82-4859-8649-9fe1bb359eeb">
+
+```python
+docker push kidong98/my-image:v1.0.0          # docker Hub에 tag되어 있는 것을 push해서 올린다
+
+# sudo docker push kidong98/my-image:v1.0.0   # 이런 식으로 sudo가 앞에 붙으면 오류가 발생한다!
+```
+
+<img width="587" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60687311-41c5-4f49-8bad-f51d60957923">
