@@ -54,6 +54,10 @@
 - 서버 가상화 --> 운영 체제가 2개씩 쌓이는 것에도 overhead가 있네? --> 컨테이너 개념이 생겨남
 - 내 자리에서 컨테이너를 만들고 컨테이너 환경에서 작업하고 환경 세팅하고 컨테이너 자체를 서버에 날리는 방식으로 해서 오류가 발생하지 않게 만들었다
 
+```
+sudo usermod -aG docker $USER  # 현재 사용자를 docker 그룹에 추가하여 Docker 명령어를 실행할 권한을 제공
+newgrp docker                  # 현재 세션을 새로운 그룹 세션으로 전환하여 사용자가 새로운 그룹의 권한을 즉시 사용할 수 있도록
+```
 
 ```
 sudo apt-get install ca-certificates curl gnupg
