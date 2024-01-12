@@ -81,7 +81,17 @@ kubectl get pod -n kube-system   # minikube 내부의 default pod들이 정상�
 
 ## Pod
 
-### 1. Pod yaml 작성 및 Pod 생성
+### 1. Pod이란
+- Pod : Kubernetes에서 생성하고 관리할 수 있는 배포 가능한 가장 작은 컴퓨팅 단위
+- Kubernetes는 Pod 단위로 scheduling, load balancing, scaling 등의 관리 작업을 수행한다
+- Pod는 Container를 감싼 개념이라고 생각할 수 있다
+- 하나의 Pod 은 한 개의 Container 혹은 여러 개의 Container 로 이루어져있을 수 있다 
+- Pod은 내부의 여러 Container 는 자원을 공유한다
+- Pod은 Stateless한 특징을 지니고 있으며, 언제든지 삭제될 수 있는 자원이다
+
+<br>
+
+### 2. Pod yaml 작성 및 Pod 생성
 <img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/48656c87-361d-4d2d-9bd1-4634bd29bedd">
 
 ```yaml
@@ -111,7 +121,7 @@ kubectl get pod             # 생성한 Pod의 상태를 확인
 
 <br>
 
-### 2. Pod 조회
+### 3. Pod 조회
 
 ```
 kubectl get pod # 
