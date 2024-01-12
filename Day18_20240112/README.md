@@ -383,3 +383,13 @@ NodePort 는 Pod 이 어떤 Node 에 스케줄링될 지 모르는 상황에서,
 
 <img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/668b88ac-4ea9-41aa-84d6-4a1c203fe33a">
 
+<br>
+
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e9a3515d-fb5b-4272-ace0-48a83f2663ae">
+- 기존에 데이터 형식을 '표 형식'으로 바꾸면 이와 같이 설정하고 변수 타입을 변경하는 등 가공해서 저장할 수도 있다
+
+<br>
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ca291d8e-520e-45e1-9335-ad00a850bdf2">
+
+- 디자이너 탭으로 가서 데이터를 불러오고 구성 요소에서 필요한 것을 가져다가 input, output 구조와 파라미터를 설정할 수 있다
