@@ -61,7 +61,71 @@ minikube start --driver=docker
 
 - 위의 명령어를 추가하고 다시 minikube를 시작하면 제대로 동작한다
 
+<br>
 
-## YAML
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7193dc6a-2791-4d83-98a7-dbd9fdbec7b4">
 
+```
+minikube status                  # 정상적으로 생성 되었는지 상태를 확인
 
+kubectl get pod -n kube-system   # minikube 내부의 default pod들이 정상적으로 생성되었는지 확인
+```
+
+### 5. Delete Minikube
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/53a8790b-b2d2-452a-b72a-f476d233ffe1">
+
+- 위의 명령어를 실행하여 minikube를 삭제할 수 있다
+- "Removed all traces of the "minikube" cluster" 가 출력되어야 잘 삭제된 것이다
+
+<br>
+
+## Pod
+
+### 1. Pod yaml 작성 및 Pod 생성
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/48656c87-361d-4d2d-9bd1-4634bd29bedd">
+
+```yaml
+apiVersion: v1 
+kind: Pod 
+metadata:  
+  name: counter 
+spec: 
+  containers: 
+  - name: count 
+    image: busybox 
+    args: [/bin/sh, -c, 'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done'] 
+```
+
+```
+vi pod.yaml                 # pod.yaml을 vim을 열어서 작성한다
+
+kubectl apply -f pod.yaml   # yaml에 해당하는 kubernetes resource를 생성 또는 변경
+                            # -f : 파일 참조 옵션
+
+kubectl get pod             # 생성한 Pod의 상태를 확인
+```
+
+- kubernetes resource 의 desired state 를 기록해놓기 위해 항상 YAML 파일을 저장하고, 버전 관리하는 것을 권장한다
+- kubectl run 명령어로 YAML 파일 생성 없이 pod 을 생성할 수도 있지만, 이는 kubernetes 에서 권장하는 방식이 아니므로 생략한다
+- 시간이 지난 후 Running 으로 변하는 것을 확인할 수 있다
+
+<br>
+
+### 2. Pod 조회
+
+```
+kubectl get pod # 
+
+kubectl get pod -A # # 모든 namespace 의 pod 을 조회
+
+kubectl get pod <pod-name> # pod 하나를 조금 더 자세히 조회하는 명령어
+
+kubectl describe pod <pod-name>  
+
+kubectl get pod -o wide # pod 목록을 보다 자세히 출력
+
+kubectl get pod <pod-name> -o yaml
+
+kubectl get pod -w   # kubectl get pod 의 결과를 계속 보여주며, 변화가 있을 때만 업데이트
+
+```
