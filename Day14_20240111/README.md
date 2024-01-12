@@ -1,6 +1,6 @@
 ## Azure에 가입 및 컨테이너 생성
 - 시크릿 모드로 http://portal.azure.com에 접속
-- 가상머신 만들기 (Ubuntu Server 20.04 LTS x64 Gen2)
+- 로그인 후 홈에서 '리소스 만들기' --> '가상머신 만들기' --> Ubuntu Server 20.04 LTS x64 Gen2 선택하기
 
 <img width='450' src='https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e48cfdf7-1d59-4e80-9b10-eb9672279611'>
 <img width='450' src='https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/43fb0907-e29f-46c1-b4bd-e8359027a6b7'>
@@ -18,12 +18,14 @@
 
 <br><br>
 
-
 ## 가상 컴퓨터 Ubuntu 서버 구성
 
+<img width="400" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f6afbc96-0db8-43fb-a473-2549e3c1fcdd">
 <img width="400" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/69b96413-d496-4320-af65-36e97a2d5c78">
 
-- Azure에서 생성된 가상머신(Ubuntu)의 연결에 들어가서 원시 SSH 창에 있는 공용 IP주소로 접속할 수 있다
+- 만들어진 가상 머신(Ubuntu)에서 '연결'을 눌러 이동한다
+- 생성된 가상머신(Ubuntu)의 연결에 원시 SSH를 선택하고 3번 'SSH 명령 복사 및 실행'에 있는 창을 선택한다
+- 3번에서 SSH를 복사해서 terminal에서 실행시켜 공용 IP주소로 접속할 수 있다
 
 <br>
 
