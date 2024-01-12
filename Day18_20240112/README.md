@@ -361,4 +361,25 @@ ClusterIP 라는 type 은 고정된 IP, PORT 를 제공하지만, 클러스터 �
 실무에서는 주로 kubernetes cluster 에 MetalLB 와 같은 LoadBalancing 역할을 하는 모듈을 설치한 후, LoadBalancer type 으로 서비스를 expose 하는 방식을 사용합니다.  
 NodePort 는 Pod 이 어떤 Node 에 스케줄링될 지 모르는 상황에서, Pod 이 할당된 후 해당 Node 의 IP 를 알아야 한다는 단점이 존재합니다. 
 ```
-<br>
+
+<br><br>
+
+## Azure Machine Learning
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/2d60900e-b850-44f8-a1a1-87b82c6ac8f8">
+
+- Marketplace에서 Azure Machine Learning을 검색해서 만들기를 누른다
+- 유효성 검사 완료 후 기다리면 배포까지 완료된다
+
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/690ac9b1-66d3-4cfc-ba35-906dc8d561f9">
+
+- 배포가 완료된 이후에 '리소스로 이동'을 통해 이동한다
+- 'Studio 시작하기'를 선택하고 다시 로그인 하고 "오늘 기계학습 목표는 무엇인가?"라는 질문을 생략하면 된다
+
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d19840d0-a95b-4b0b-8d3a-2a6b5f4dee56">
+
+- 좌측 메뉴의 '데이터'로 이동하여 '만들기'를 누른 후, 형식을 '파일(uri_file)'로 설정한다
+- '로컬 파일에서'를 선택하고 파일 업로드를 하고 유효성 검사 이후 데이터 자산이 만들어진다
+
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/668b88ac-4ea9-41aa-84d6-4a1c203fe33a">
+
