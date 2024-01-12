@@ -123,19 +123,58 @@ kubectl get pod             # 생성한 Pod의 상태를 확인
 
 ### 3. Pod 조회
 
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e841fcf5-8060-4189-8aeb-1b2f7441f821">
+
 ```
-kubectl get pod # 
+kubectl get pod               # 기본적인 pod 조회
 
-kubectl get pod -A # # 모든 namespace 의 pod 을 조회
+kubectl get pod -A            # 모든 namespace 의 pod 을 조회
 
-kubectl get pod <pod-name> # pod 하나를 조금 더 자세히 조회하는 명령어
+kubectl get pod -o wide       # pod 목록을 보다 자세히 출력
+
+kubectl get pod -w            # kubectl get pod 의 결과를 계속 보여주며, 변화가 있을 때만 업데이트
+
+kubectl get pod <pod-name>    # pod 하나를 조금 더 자세히 조회하는 명령어
+
+kubectl get pod <pod-name> -o yaml  # yaml 형식으로 출력
 
 kubectl describe pod <pod-name>  
+```
 
-kubectl get pod -o wide # pod 목록을 보다 자세히 출력
+### 4. Pod 로그
 
-kubectl get pod <pod-name> -o yaml
+<img width="500" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d7219945-a8c0-4c70-a975-f5a857dc5bd9">
 
-kubectl get pod -w   # kubectl get pod 의 결과를 계속 보여주며, 변화가 있을 때만 업데이트
+```
+## Pod 안에 하나의 Container만 있는 경우
+kubectl logs <pod-name>     # Pod의 로그를 확인
 
+kubectl logs <pod-name> -f  # Pod의 로그를 계속 보여 (Ctrl + C로 중단)
+
+## Pod 안에 여러 개의 Container가 있는 경우
+kubectl logs <pod-name> -c <container-name> 
+
+kubectl logs <pod-name> -c <container-name> -f 
+```
+
+### 5. Pod 내부 접속
+
+<img width="640" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b88eda02-4349-41a5-be2e-a4be8d52d077">
+
+```
+kubectl exec -it <pod-name> -- <명령어>  # Pod 내부에 접속
+
+# Pod 안에 여러 개의 Container가 있는 경우
+kubectl exec -it <pod-name> -c <container-name> -- <명령어> 
+ 
+```
+
+### 6. Pod 삭제
+
+<img width="515" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/482e664a-8274-4387-bd83-d874dcb8d060">
+
+```
+kubectl delete pod <pod-name>     # 해당 이름의 Pod를 삭제
+
+kubectl delete -f <YAML-파일-경로> # 리소스를 생성할 때, 사용한 YAML 파일을 사용해서 삭제
 ```
