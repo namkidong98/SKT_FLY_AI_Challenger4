@@ -178,3 +178,126 @@ kubectl delete pod <pod-name>     # 해당 이름의 Pod를 삭제
 
 kubectl delete -f <YAML-파일-경로> # 리소스를 생성할 때, 사용한 YAML 파일을 사용해서 삭제
 ```
+
+<br><br>
+
+## Deployment
+
+### 1. Deployment란
+Deployment(디플로이먼트)는 Pod와 Replicaset에 대한 관리를 제공하는 단위입니다.  
+
+https://kubernetes.io/ko/docs/concepts/workloads/controllers/deployment/ 
+
+관리라는 의미는 Self-healing, Scaling, Rollout(무중단 업데이트) 과 같은 기능을 포함합니다. 
+
+조금 어렵다면 Deployment 는 Pod을 감싼 개념이라고 생각할 수 있습니다.  
+
+Pod 을 Deployment 로 배포함으로써 여러 개로 복제된 Pod, 여러 버전의 Pod 을 안전하게 관리할 수 있습니다. 
+
+Deployment 의 자세한 구조는 생략하겠습니다. 
+
+<br>
+
+### 2. Deployment 생성
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/db74b7ea-8645-4969-93da-948b13f261bc">
+
+```yaml
+apiVersion: apps/v1     # kubernetes resource 의 API Version 
+kind: Deployment        # kubernetes resource name 
+metadata:               # 메타데이터 : name, namespace, labels, annotations 등을 포함 
+  name: nginx-deployment 
+  labels: 
+    app: nginx 
+spec:                   # 메인 파트 : resource 의 desired state 를 명시 
+  replicas: 3           # 동일한 template 의 pod 을 3 개 복제본으로 생성합니다. 
+  selector: 
+    matchLabels: 
+      app: nginx 
+  template:             # Pod 의 template 을 의미합니다. 
+    metadata: 
+      labels: 
+        app: nginx 
+    spec: 
+      containers: 
+      - name: nginx         # container 의 이름 
+        image: nginx:1.14.2 # container 의 image 
+        ports: 
+        - containerPort: 80 # container 의 내부 Port 
+```
+```
+vi deployment.yaml                # deployment 생성을 위한 yaml 파일 생성
+kubectl apply -f deployment.yaml  # 해당 yaml 파일로 deployment 생성
+```
+- replicas를 3으로 설정해서 pod이 3개가 ContainerCreating에서 Running으로 변화하는 것도 확인할 수 있다
+
+<br>
+
+### 3. Deployment 조회
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/910d3f92-a100-4883-ba44-c0ac38067f88">
+
+```
+kubectl get deployment      # 생성한 Deployment의 상태를 확인
+
+kubectl get deployment,pod  # Deployment와 관리되는 Pod들의 상태를 한번에 확인
+                            # deployment와 pod 사이에 ,를 바로 넣어야 함. 띄어쓰기 있으면 오류 발생
+
+kubectl describe pod <pod-name>
+```
+- pod 의 정보를 자세히 조회하면 Controlled By 로부터 Deployment 에 의해 생성되고 관리되고 있는 것을 확인할 수 있다
+
+<br>
+
+### 4. Deployment Auto-healing
+
+<img width="850" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6c6dbd2c-de1d-4bce-9b7f-a8a57a924771">
+
+```
+kubectl delete <pod-name>  # 해당 이름의 pod를 삭제
+
+kubectl get pod # 현재 pod의 상태 확인
+```
+- 기존에 deployment의 control을 받던 k6j85을 삭제했다
+- kubectl get pod를 하면 여전히 pod이 3개인 것을 확인할 수 있다
+- 대신 k6j85는 삭제된 것이 맞고 대신 rvt92이 생성되어 auto-healing된 것을 확인할 수 있다 
+
+<br>
+
+### 5. Deployment Scaling
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f3a2b01e-d070-4325-bb4a-9a6fed52cf51">
+
+```
+kubectl scale deployment/nginx-deployment --replicas=5 
+
+kubectl get deployment,pod 
+```
+- replica 개수를 위의 코드를 통해 늘릴 수 있다
+
+```
+kubectl scale deployment/nginx-deployment --replicas=1 
+ 
+kubectl get deployment,pod
+```
+- 위의 코드로는 replica 개수를 줄일 수 있다
+
+<br>
+
+### 6. Deployment 삭제
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/2fd72689-fa6f-4742-ab30-3add206eee40">
+
+```
+kubectl delete deployment <deployment-name> # deployment를 직접 삭제
+kubectl delete -f <YAML-파일-경로>           # yaml 파일로 생성시킨 deployment를 삭제
+
+kubectl get deployment # 현재 Deployment 상태 확인             
+kubectl get pod        # 현재 Pod 상태 확인
+```
+- Deployment 의 Control 을 받던 pod 역시 모두 삭제된 것을 확인할 수 있다
+
+<br><br>
+
+
+
