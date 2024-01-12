@@ -299,5 +299,51 @@ kubectl get pod        # 현재 Pod 상태 확인
 
 <br><br>
 
+## Service
+
+### 1. Service란
+- Service : Kubernetes에 배포한 애플리케이션(Pod)을 외부에서 접근하기 쉽게 추상화한 Resource 
+
+https://kubernetes.io/ko/docs/concepts/services-networking/service/ 
+
+Pod 은 IP 를 할당받고 생성되지만, 언제든지 죽었다가 다시 살아날 수 있으며, 그 과정에서 IP 는 항상 재할당받기에 고정된 IP 로 원하는 Pod 에 접근할 수는 없습니다. 
+
+따라서 클러스터 외부 혹은 내부에서 Pod 에 접근할 때는, Pod 의 IP 가 아닌 Service 를 통해서 접근하는 방식을 거칩니다. 
+
+Service 는 고정된 IP 를 가지며, Service 는 하나 혹은 여러 개의 Pod 과 매칭됩니다. 
+
+따라서 클라이언트가 Service 의 주소로 접근하면, 실제로는 Service 에 매칭된 Pod 에 접속할 수 있게 됩니다. 
+<br>
+
+### 2. Service 생성
+
+<img width="750" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/0a8ada36-639a-4b35-a819-3dcb2f79aa38">
+
+```
+kubectl get pod -o wide     # 이 명령어로 Pod의 IP를 확인
+curl -X GET <POD-IP> -vvv   # 통신 시도 --> 통신 불가능
+ping <POP-IP>               # 지정된 IP 주소에 대해 통신 상태를 확인
+
+minikube ssh                # minikube 내부로 접속
+curl -X GET <POD-IP> -vvv   # 통신 시도 --> 통신 Accept
+ping <POP-IP>               # 통신이 연결된 것을 확인 가능
+```
+
+- 할당된 <POD-IP>는 클러스터(minikube) 내부에서만 접근할 수 있는 IP이기 때문에 외부에서는 Pod에 접속할 수 없다
+- 즉, minikube의 내부가 아닌 외부로 볼 수 있는 컴퓨터 로컬에서 query로 요청하니 접속이 거부되는 것이다
+- minikube 내부로 접속하면 통신이 허용되는 것을 확인할 수 있다
 
 
+<br>
+
+### 3. 
+
+<br>
+
+### 4. 
+
+<br>
+
+### 5. 
+
+<br>
