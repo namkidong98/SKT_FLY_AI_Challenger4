@@ -98,3 +98,14 @@
 <img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e5a59c42-bf06-4fcb-acac-4ef4f1c16134">
 
 - 스토리지 계정을 만들고 그 안에 컨테이너를 생성한다
+- learn이라는 컨테이너에 install_nginx001.sh, install_nginx002.sh을 업로드한다
+
+## 가상머신에서 추가 작업
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/240f29e6-771c-4ef5-9528-588e715da89d">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/daf02e07-2895-49f4-8adb-dbfd0be72bc9">
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/82ddb6e4-a990-4447-ae0d-9e6ac1d41c9e">
+<img width="700" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60705d7d-ea00-4fff-8f7c-ff3ffa6501d5">
+
+- 첫 번째 가상머신에서 '확장 프로그램 + 어플리케이션'에서 '확장 설치'로 들어가서 'Custom script for linux'를 선택하고 첫 번째 sh파일을 업로드한다
+- 다음으로 첫 번째 가상머신에서 '네트워킹'에 들어가서 인바운드 포트 규칙을 추가해서 80 포트를 열어준다
+- NIC 공용 IP를 통해서 접속하면 연결되는 것을 확인할 수 있다
