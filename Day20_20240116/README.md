@@ -112,3 +112,10 @@
 - NIC 공용 IP를 통해서 접속하면 연결되는 것을 확인할 수 있다
 - 네트워크 인터페이스를 선택해서 들어가서 IP구성에서 ipconfig1을 누르고 정적으로 바꾸고 저장해준다 --> 두 개의 backend pool이 모두 비활성화 작업
 - Front VM을 만들어서 10.0.3.77을 연결해주면 연결이 된다
+
+## 리소스 그룹 한번에 삭제
+<img width="975" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/2b014be8-ead1-431b-9df9-6d361abb2297">
+
+```
+az group delete --name (삭제할 리소스 이름) --no-wait --yes
+```
