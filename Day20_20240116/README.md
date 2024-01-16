@@ -113,6 +113,8 @@
 - 네트워크 인터페이스를 선택해서 들어가서 IP구성에서 ipconfig1을 누르고 정적으로 바꾸고 저장해준다 --> 두 개의 backend pool이 모두 비활성화 작업
 - Front VM을 만들어서 10.0.3.77을 연결해주면 연결이 된다
 
+<br>
+
 ## 리소스 그룹 한번에 삭제
 <img width="975" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/2b014be8-ead1-431b-9df9-6d361abb2297">
 
