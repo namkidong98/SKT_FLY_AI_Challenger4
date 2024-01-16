@@ -84,4 +84,17 @@
 
 <br>
 
-- 마지막으로 인바운드 NAT 규칙 추가에 들어가서
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/88b8addc-7f45-464a-85d4-999f82b5a6f6">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/cb3785c8-2b36-4adf-bf7c-7cd950f948aa">
+
+- 마지막으로 인바운드 NAT 규칙 추가에 들어가서 위의 사진과 같이 설정한다
+- 백엔드 풀의 현재 컴퓨터 수가 2인 이유는 backend에 연결된 가상 머신이 2개이기 때문이며, backend port를 22로 한 것은 linux machine이기 떄문이다
+- 설정을 마춘 이후 '개요'로 돌아가면 아까는 비어있던 부분들이 다 채워진 것을 확인할 수 있다
+
+<br>
+
+## 저장소 만들기
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ca856136-874f-44c9-a9e9-8056ed4d8be6">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e5a59c42-bf06-4fcb-acac-4ef4f1c16134">
+
+- 스토리지 계정을 만들고 그 안에 컨테이너를 생성한다
