@@ -156,6 +156,44 @@ $az group delete --name 리소스그룹 --no-wait --yes
 
 <br>
 
-# App Service
+
+# 웹앱 만들기
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/29584408-2e7f-4ff2-bdca-77ed81608700">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/8a7cb7a0-5b52-4dc9-abad-322e67571926">
+
+- 스케일 업 : 더 많은 하드 웨어, 더 많은 기능
+- 스케일 아웃 : 수동 혹은 자동 VM 인스턴스 증가
+
+<br>
+
+# 정적 웹앱 만들기
+<img width='700' src='https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7256dcea-2c7c-4fec-a766-944b2c3a1073'>
+
+- Azure Static Web Apps : 코드 리포지토리에서 전체 스택 웹앱을 자동으로 빌드하고 Azure에 배포하는 서비스
+- 정적 웹앱은 일반적으로 서버 쪽 렌더링이 필요하지 않은 Angular, React, Svelte, Vue 또는 Blazor와 같은 라이브러리와 웹 프레임워크를 사용하여 빌드됨
 
 
+## 실습 - 정적 웹앱 만들기
+1. 가상머신 만들기(Windows 10)
+2. VM에서 Visual Studio Code를 이용하여 애플리케이션 만들기
+3. Github 계정 만들고 Github에 VM에서 만든 애플리케이션 올리기
+4. Azure Portal에서 정적 웹앱 만들기
+
+<br>
+
+## 1. 가상머신 만들기(Windows 10)
+
+<br>
+
+## 2. VM에서 Visual Studio Code를 이용하여 애플리케이션 만들기
+
+<br>
+
+## 3. Github 계정 만들고 Github에 VM에서 만든 애플리케이션 올리기
+
+<br>
+
+## 4. Azure Portal에서 정적 웹앱 만들기
+
+<br>
