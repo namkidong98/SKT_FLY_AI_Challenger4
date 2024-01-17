@@ -9,7 +9,7 @@
 
 <br>
 
-## Azure Application Gateway(L7)
+# Azure Application Gateway(L7)
 <img width='700' src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/420fd31e-2a18-4d94-9392-f28ca2690ce7">
 
 - Azure APplication Gateway : 웹 애플리케이션에 대한 트래픽을 관리할 수 있도록 하는 웹 트래픽 부하 분산 장치
@@ -106,3 +106,16 @@
 <img width="300" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b238a361-beea-4bb7-9055-16ac1dbac978">
 
 - Gateway의 공용 IP로 여러번 접속을 시도하면 부하 분산이 되는 것을 확인할 수 있다
+
+<br><br>
+
+# 가상 머신 확장 집합(VMSS)
+<img width='700' src='https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7c868cec-182e-4de2-9dd2-d897268f239a'>
+
+- 가상 머신 확장 집합(VMSS : Virtual Machine Scale Sets) : 부하 분산된 VM 그룹을 생성하고 관리 가능
+- VMSS는 Azure Portal에서 VM을 생성한 것과 다르게 VM을 정의된 일정이나 요구사항에 따라서 자동의 생성하거나 제거할 수 있음
+- 장점 : 다수 VM 생성 및 관리의 단순화, 고가용성 및 애플리케이션 복원력 제공, 리소스 수요 변화에 따라 자동으로 애플리케이션 크기 조정
+
+<br>
+
+## VMSS 생성 및 수동 크기 조정
