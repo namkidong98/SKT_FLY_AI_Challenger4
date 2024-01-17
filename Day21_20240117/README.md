@@ -154,4 +154,8 @@ $az group delete --name 리소스그룹 --no-wait --yes
 
 - '확장 중'에서 다시 수동으로 인스턴스 수를 1로 줄이니 인스턴스가 자동적으로 1개 삭제된 것을 확인할 수 있다
 
+<br>
+
+# App Service
+
 
