@@ -107,6 +107,14 @@
 
 - Gateway의 공용 IP로 여러번 접속을 시도하면 부하 분산이 되는 것을 확인할 수 있다
 
+<img width="428" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/38a3814b-db56-45fd-87b9-93e1294f758d">
+
+```
+$az group delete --name 리소스그룹 --no-wait --yes
+```
+
+- Application Gateway 포함 리소스 그룹 삭제하기
+
 <br><br>
 
 # 가상 머신 확장 집합(VMSS)
@@ -118,4 +126,32 @@
 
 <br>
 
-## VMSS 생성 및 수동 크기 조정
+## VMSS 생성
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6bf807bf-fd6c-4115-b748-93ca49b2dddc">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f1164c32-1301-4d2c-86a6-47ddb83c266d">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/80ed7f09-40a6-4419-b1fd-928b69069d26">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5b58f47e-650e-4cc1-9566-4cce3ff7bcc8">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/3b5e6533-d8b0-441d-b9fc-73730295585e">
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e1f8e985-9928-4629-807e-5722cdad8c30">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d6e4e31e-3200-47a4-941c-3d3a9ae467a7">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7392a6ab-2e86-4530-b3d5-65c5a82b873f">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/08848116-3ed4-45f3-9071-dcf147ca5715">
+
+<br>
+
+## VMSS  수동 크기 조정
+
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f2c76f8e-55d1-48a9-94ea-cd2e1e98509d">
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1afe8db4-0dfa-42e7-b576-03e79a47fcc1">
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7d42b68d-a204-4a66-8897-3dad43e72ea1">
+
+- 처음에는 인스턴스가 1개이다가 '확장 중'에서 2개로 늘리고 나니 인스턴스가 자동적으로 2개로 늘어난 것을 확인할 수 있다
+
+<br>
+
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a7bff1b9-c9fd-492e-818f-3636763ddbad">
+<img width="900" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b0218aa6-cb19-4498-8d19-e279956c3325">
+
+- '확장 중'에서 다시 수동으로 인스턴스 수를 1로 줄이니 인스턴스가 자동적으로 1개 삭제된 것을 확인할 수 있다
+
+
