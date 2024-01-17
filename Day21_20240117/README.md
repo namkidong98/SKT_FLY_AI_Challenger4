@@ -1,4 +1,7 @@
-<img width="626" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/dab3f064-2d0f-4bdf-b874-b2d443808d67">## 부하 분산 장치(L4) 구성 요소
+## 부하 분산 장치(L4) 구성 요소
+
+<img width="626" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/dab3f064-2d0f-4bdf-b874-b2d443808d67">
+
 1. 백엔드 풀 : 들어오는 요청에 대해 처리할 가상 머신 세트를 지정
 2. 상태 프로브 : 백 엔드 풀의 가상 머신 상태 모니터링
 3. 부하 분산 규칙 : 백 엔드 풀의 가상 머신에 트래픽 분산시키는 방법 정의
@@ -87,7 +90,7 @@
 <img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fe9ecf6a-d937-418a-9643-c879ea7994f6">
 <img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/8b28bf1c-15f5-4181-b8d8-a8fc30901c98">
 
-<br>
+<br><br>
 
 ### 가상 머신 비활성화 --> 프라이빗 IP만 열게 만들기
 <img width="937" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5ea17d19-9457-4dbc-a705-3530ba48cd47">
@@ -96,11 +99,10 @@
 - 가상 머신의 네트워킹에 들어가서 인터페이스 안에서 IP구성에서 정적으로 바꾸고 비활성화를 한다
 - 비활성화를 하고 나면 공용 IP 칸이 비워지는 것을 확인해야 한다
 
-<br>
+<br><br>
 
 ## 5. 만들어진 Application GateWay 테스팅
 <img width="300" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7269c82c-dd57-4c4c-a103-9b50a30096c6">
 <img width="300" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b238a361-beea-4bb7-9055-16ac1dbac978">
 
 - Gateway의 공용 IP로 여러번 접속을 시도하면 부하 분산이 되는 것을 확인할 수 있다
-- 
