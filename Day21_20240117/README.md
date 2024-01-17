@@ -182,18 +182,16 @@ $az group delete --name 리소스그룹 --no-wait --yes
 
 <br>
 
-## 1. 가상머신 만들기(Windows 10)
-
-<br>
-
-## 2. VM에서 Visual Studio Code를 이용하여 애플리케이션 만들기
-
-<br>
-
-## 3. Github 계정 만들고 Github에 VM에서 만든 애플리케이션 올리기
-
-<br>
-
 ## 4. Azure Portal에서 정적 웹앱 만들기
+
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fc957fd3-dbc6-4b28-a0f2-6a6ba84fc815">
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e6efa655-e783-4079-89ad-5b26a6be4420">
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/18e11b83-0994-4261-9473-b5405cde84f5">
+
+- https://lemon-island-0acce6210.4.azurestaticapps.net/#
+
+<br>
+
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/22f3ca0c-aa41-4a93-81b1-375367471f58">
 
 <br>
