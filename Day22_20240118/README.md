@@ -226,8 +226,8 @@ az acr check-health -n mykdregistry -y
 
 <br>
 
-<img width="791" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/efc9ecf1-3e22-4ac6-b63d-d958dd1b184c">
-<img width="608" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f75e8f9f-4da8-42f0-899d-09a5c6c54540">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/efc9ecf1-3e22-4ac6-b63d-d958dd1b184c">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f75e8f9f-4da8-42f0-899d-09a5c6c54540">
 
 ```
 git clone https://github.com/Azure-Samples/aci-helloworld
@@ -241,9 +241,167 @@ az acr create --resource-group rg-acr1 --name helloregistry01kd --sku Standard
 az acr build --registry helloregistry01kd --image helloacr:v1 . # Dockerfile이 있는 곳에서
 ```
 
-<img width="746" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/084d7d44-bf12-4b39-9387-2b21dc9ffb18">
-<img width="763" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e221392b-1ab6-49a0-878b-019ebf979229">
-<img width="575" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d6e6cf29-eaca-42f0-87db-26a0db42c253">
-<img width="570" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1ea64ea9-27a2-4571-b5a7-fe9615d213e2">
-<img width="767" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e7698906-29e9-45cb-83ed-5418ef16b443">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/084d7d44-bf12-4b39-9387-2b21dc9ffb18">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e221392b-1ab6-49a0-878b-019ebf979229">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d6e6cf29-eaca-42f0-87db-26a0db42c253">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1ea64ea9-27a2-4571-b5a7-fe9615d213e2">
+<img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e7698906-29e9-45cb-83ed-5418ef16b443">
 
+<br><br>
+
+# Azure Cosmos DB SQL API 구성 요소
+- 데이터 베이스 : Azure Cosmos DB SQL API에서 컨테이너 관리를 위한 논리적 단위
+- 컨테이너 : 기본적인 스케일링 단위, Azure Cosmos DB SQL API는 자동으로 컨테이너의 데이터를 분할
+- JSON 형식으로 컨테이너 안에 개별 문서가 저장된다
+- 분할을 사용하기 위해서는 경로로 구성된 파티션 키(ex /firstname)가 사용된다
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/aadc9db4-66aa-4508-803f-202f3d67633a">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5f20746a-c0e1-4d71-87aa-1e1590c81987">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b2891c8f-be8b-4c88-a10c-7751a3e16f62">
+
+<br><br>
+
+## CRUD Operation
+
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/444e2303-d566-46ac-b480-10de88072cfd">
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/fbeffc6e-0b37-47a4-b1ae-bd8b6d41c849">
+
+<br><br>
+
+## Python으로 컨테이너
+
+```
+# command prompt로 terminal을 하나 만들고
+python -m venv venv      # 가상 환경 생성
+.\venv\Scripts\activate  # 가상 환경 활성화
+pip install azure-cosmos python-dotenv
+pip install azure-identity
+
+# .env 파일 생성
+# operation.py 파일 생성
+python operation.py
+```
+
+<img width="419" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/8972f40e-da72-4f71-94f3-2058b4e09dcb">
+<img width="529" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/002d250e-e225-40ed-9f23-b0437cbc3374">
+
+- 만든 cosmos DB API에서 Key를 복사해서 .env 파일의 ACCOUNT_URI에 넣는다
+- Primary Key를 .env 파일의 ACCOUNT_KEY에 넣는다
+
+```python
+# operation.py 파일 생성
+from azure.cosmos import CosmosClient, exceptions, PartitionKey
+import os, json
+from dotenv import load_dotenv
+
+load_dotenv() # .env에 저장된 값들 로딩
+
+URL = os.environ.get("ACCOUNT_URI")
+KEY = os.environ.get("ACCOUNT_KEY")
+client = CosmosClient(URL, credential=KEY)
+DATABASE_NAME = 'customerList'
+
+try:
+    database = client.get_database_client(DATABASE_NAME)
+except exceptions.CosmosResourceExistsError:
+    database = client.get_database_client(DATABASE_NAME)
+
+CONTAINER_NAME = 'products'
+try:
+    container = database.create_container(
+        id = CONTAINER_NAME,
+        partition_key=PartitionKey(path="/productName")
+    )
+except exceptions.CosmosResourceExistsError:
+    container = database.get_container_client(CONTAINER_NAME)
+except exceptions.CosmosHttpResponseError:
+    raise
+
+for i in range(1, 10):
+    container.upsert_item( # 있는 거는 업데이트, 없으면 생성
+        {
+            'id' : 'item{0}'.format(i),
+            'productName' : 'Laptop',
+            'productModel' : 'Model {0}'.format(i)
+        }
+    )
+```
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a5b42403-9de5-4267-bc65-c2bf87099329">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e6af45d3-1ae0-4e08-8ef6-af04d5e14ee7">
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/75e397c8-ffa7-47f2-83e5-34727468bee1">
+
+- venv에 들어가서 .env 파일을 만들고 azure DB API에서 URI와 KEY를 가져와서 입력한다
+- opeartion.py 파일을 만들고 모든 파일을 저장하고 python operation.py를 실행하면 Azure DB에 products가 생성된 것을 확인할 수 있다
+- for문으로 9개의 product item이 추가되는 것도 확인할 수 있다
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4e1eb626-09f5-457b-ad7c-c40ca4faad46">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/057f994c-8c90-479a-b7d9-c6e6546be875">
+
+```python
+##-----operation-select.py------##
+from azure.cosmos import CosmosClient, exceptions, PartitionKey
+import os, json
+from dotenv import load_dotenv
+
+load_dotenv() # .env에 저장된 값들 로딩
+
+URL = os.environ.get("ACCOUNT_URI")
+KEY = os.environ.get("ACCOUNT_KEY")
+client = CosmosClient(URL, credential=KEY)
+DATABASE_NAME = 'customerList'
+
+try:
+    database = client.get_database_client(DATABASE_NAME)
+except exceptions.CosmosResourceExistsError:
+    database = client.get_database_client(DATABASE_NAME)
+
+CONTAINER_NAME = 'products'
+container = database.get_container_client(CONTAINER_NAME)
+
+for item in container.query_items(
+        query='SELECT * FROM mycontainer r Where r.id="item3"',
+        enable_cross_partition_query=True):
+    print(json.dumps(item, indent=True))
+```
+
+```python
+##-----operation-select2.py------##
+from azure.cosmos import CosmosClient, exceptions, PartitionKey
+import os, json
+from dotenv import load_dotenv
+
+load_dotenv() # .env에 저장된 값들 로딩
+
+URL = os.environ.get("ACCOUNT_URI")
+KEY = os.environ.get("ACCOUNT_KEY")
+client = CosmosClient(URL, credential=KEY)
+DATABASE_NAME = 'customerList'
+
+try:
+    database = client.get_database_client(DATABASE_NAME)
+except exceptions.CosmosResourceExistsError:
+    database = client.get_database_client(DATABASE_NAME)
+
+CONTAINER_NAME = 'products'
+container = database.get_container_client(CONTAINER_NAME)
+
+discontinued_items = container.query_items(
+    query='SELECT * FROM products p WHERE p.productModel = @model',
+    parameters= [
+        dict(name='@model', value='Model 7')
+    ],
+    enable_cross_partition_query=True
+)
+for item in discontinued_items:
+    print(json.dumps(item, indent=True))
+```
+
+- operation-select.py를 추가해서 query를 실행하면 해당하는 데이터가 출력되는 것을 확인할 수 있다
+- operation-select2.py를 추가해서 query를 실행해도 해당하는 데이터가 출력되는 것을 확인할 수 있다
