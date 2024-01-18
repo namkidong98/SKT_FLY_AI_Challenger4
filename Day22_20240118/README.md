@@ -124,3 +124,126 @@ netstat -tnlp
 ## 3. Dockerfile
 - Dockerfile : 필요한 Docker image를 생성하기 위한 일련의 명령 또는 지침이 포함된 텍스트 파일
 - 명령은 쓰여진 순서대로 실행되며(docker build) Docker image를 생성, 명령으로는 FROM, COPY, RUN, CMD 등이 있다
+
+## 4. Apache 웹 서버 만들기
+
+<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a6455ceb-b312-4550-ba67-8656a869cff4">
+
+```
+vi Dockerfile                       # Dockerfile 작성
+cat Dockerfile                      # Dockerfile 확인
+sudo docker build -t apache2:1.0 .  # Dockerfile로 image 생성
+sudo docker run 
+```
+
+```
+FROM ubuntu:20.04
+
+ARG DEBIAN_FRONTEND=noninteractive
+
+RUN apt update
+RUN apt install -y apache2
+RUN apt install -y apache2-utils
+RUN apt clean
+
+EXPOSE 80
+
+CMD /usr/sbin/apache2ctl -D FOREGROUND
+```
+
+- Dockerfile을 작성하고 생성한 Dockerfile로 image 만들기
+
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/06ed85f7-9cc9-4c73-9813-5cee7fdcc911">
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/b2e74fce-4d26-4d71-8e53-f0b093bf6c0f">
+
+- 기존에 돌고 있는 alpane을 멈추고 docker run을 해준다
+
+<br>
+
+<img width="900" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1b09d5e0-81ee-4c7f-a882-0d2311cd03a2">
+<img width="300" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6bbaba6e-1b56-41b3-96e5-14f069b3a31b">
+
+```
+vim index.html
+cat index.html
+sudo docker ps -a  # 현재 실행중인 컨테이너 ID 확인
+sudo docker stop (현재 실행중인 컨테이너 ID)
+sudo docker run --name apache-srv -p 80:80 -d -v /home/kidong/apache_docker/html:/var/www/html apache2:1.0
+```
+
+```
+<html lang="ko">
+<head>
+        <meta charset='utf-8'>
+        <title>Apache 웹사이트 수정</title>
+</head>
+<body>
+        <h3>Dockerfile을 이용한 Apache 웹사이트</h3>
+</body>
+</html>
+```
+
+- 위의 index.html이 있는 위치로 apache-srv라는 이름으로 docker 컨테이너를 실행시키면 위와 같이 나온다
+
+<br>
+
+# Azure Container Registry(ACR)
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6ae9bab1-1320-43fa-995a-d8a2b1fb89d4">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e34c82a0-4a43-44ff-8e31-13623cdb3790">
+<img width="714" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/45a14887-79ee-4da6-bcc7-5c109418ff3f">
+<img width="626" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5901a742-a0b5-4f00-adea-bb3c79cdc6dc">
+
+```
+az acr create --name mykdregistry --resource-group Legend-DuckEgg --sku standard --admin-enabled true
+# Azure CLI에서 시작할 때는 az
+# acr create                       : ACR을 만들겠다
+# --name mykdregistry              : 다음으로 이름을 지정하겠다
+# --resource-group Legend-DuckEgg  : 다음으로 리소스 그룹을 지정하겠다
+# --sku standard                   : standard 계층을 사용하겠다
+# --admin-enabled true             : root 권한을 활성하시키겠다
+
+git clone https://github.com/MicrosoftDocs/mslearn-deploy-run-container-app-service
+cd mslearn-deploy-run-container-app-service/node
+cat Dockerfile 
+az acr build --registry mykdregistry --image webimage .
+
+# 내 레지스트리의 상태 확인
+az acr show -n mykdregistry --resource-group Legend-DuckEgg
+az acr check-health -n mykdregistry -y
+```
+
+<img width="1001" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/db2f3747-1ffd-4fa9-bd10-2a2fc8e43be9">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/18a602d4-a0eb-436e-9404-3a757b1731b5">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/69472e1e-ef2e-4016-b52d-f2653d820a35">
+
+
+## Dockerfile, ACR을 이용한 ACI(Azure Container Instance) 구현
+1. Azure CLI 실행
+2. ACR(Azure Container Registry) 생성
+3. Dockerfile을 이용하여 ACR에 이미지 업로드
+4. ACI(Azure Container Instance) 생성
+
+<br>
+
+<img width="791" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/efc9ecf1-3e22-4ac6-b63d-d958dd1b184c">
+<img width="608" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f75e8f9f-4da8-42f0-899d-09a5c6c54540">
+
+```
+git clone https://github.com/Azure-Samples/aci-helloworld
+
+cd aci-helloworld/app
+vi index.html   # header 수정하기
+cat index.html  # 수정된 것인지 확인
+
+az group create --name rg-acr1 --location eastus
+az acr create --resource-group rg-acr1 --name helloregistry01kd --sku Standard
+az acr build --registry helloregistry01kd --image helloacr:v1 . # Dockerfile이 있는 곳에서
+```
+
+<img width="746" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/084d7d44-bf12-4b39-9387-2b21dc9ffb18">
+<img width="763" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e221392b-1ab6-49a0-878b-019ebf979229">
+<img width="575" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d6e6cf29-eaca-42f0-87db-26a0db42c253">
+<img width="570" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1ea64ea9-27a2-4571-b5a7-fe9615d213e2">
+<img width="767" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e7698906-29e9-45cb-83ed-5418ef16b443">
+
