@@ -1,4 +1,4 @@
-# Azure Cosmos DB
+<img width="466" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/694ea02c-6e3d-468e-be71-6f57e19092d2"># Azure Cosmos DB
 
 ## Azure에서 사전 설정
 
@@ -250,4 +250,18 @@ collection.delete_one(findValue) # 찾은 데이터 하나만 삭제
 
 <br>
 
-# 
+# Azure DB for MySQL
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/e0d11d47-090f-4233-bdc0-6aebe4f3165f">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4b8ab2fd-e87a-4516-8f51-30c2c9cfef12">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a547f2ed-05f0-47f5-8824-1c639317e6f8">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/0e61b5a9-4c24-4223-b452-192d40ae3c5d">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ec4949a5-fdab-46e3-8d79-244bace7e374">
+
+<br>
+
+## MySQL WorkBench
+
+<img width="572" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60255055-5888-4a0f-be5b-83b6f7d988d1">
+
+## 
