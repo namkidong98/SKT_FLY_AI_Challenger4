@@ -1,4 +1,8 @@
-<img width="466" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/694ea02c-6e3d-468e-be71-6f57e19092d2"># Azure Cosmos DB
+# Azure Cosmos DB
+
+<img width="466" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/694ea02c-6e3d-468e-be71-6f57e19092d2">
+
+<br><br>
 
 ## Azure에서 사전 설정
 
