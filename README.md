@@ -61,8 +61,8 @@ SKT FLY AI Challenger 4th Member, 20231218-20240229
 - Day19_20240115 : 
 - Day20_20240116 : Azure Load Balancer(L4)
 - Day21_20240117 : Azure Application Gateway(L7), VMSS, WebApp
-- Day22_20240118 :
-- Day23_20240119 :
+- Day22_20240118 : Deployment Slots, Docker, ACI(Azure Container Instance), ACR(Azure Container Registry
+- Day23_20240119 : Azure Cosmos DB SQL API, 
 
 <br>
 
