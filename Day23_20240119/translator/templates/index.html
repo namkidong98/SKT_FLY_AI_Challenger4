@@ -1,0 +1,33 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>번역기(Translator)</title>
+</head>
+<body>
+    <div class="container">
+        <h1>번역 서비스</h1>
+        <div>번역할 텍스트를 입력하시고 언어를 선택하세요.</div>
+        <div>
+            <form method="POST">
+                <div class="form-group">
+                    <textarea name="text" cols="20" rows="10" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="language">언어 : </label>
+                    <select name="language" class="form-control">
+                        <option value="en">영어</option>
+                        <option value="ja">일본어</option>
+                        <option value="ko">한국어</option>
+                    </select>
+                </div>
+                <hr />
+                <div>
+                    <button type="submit" class="btn btn-success">번역 진행</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
