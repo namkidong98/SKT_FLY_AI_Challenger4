@@ -248,7 +248,7 @@ collection.delete_one(findValue) # 찾은 데이터 하나만 삭제
 # collection.delete_many(findValue) # 찾은 데이터 모두 삭제
 ```
 
-<br>
+<br><br>
 
 # Azure DB for MySQL
 
@@ -262,6 +262,199 @@ collection.delete_one(findValue) # 찾은 데이터 하나만 삭제
 
 ## MySQL WorkBench
 
-<img width="572" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60255055-5888-4a0f-be5b-83b6f7d988d1">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/60255055-5888-4a0f-be5b-83b6f7d988d1">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d33cd612-1cac-4753-8d11-499b9a25a8bc">
+<img width="750" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/85352844-9d9a-4b4a-96a2-a41b780aad88">
 
-## 
+<br>
+
+<img width="556" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/f1885b01-b3d9-486e-b152-5bda015cd992">
+
+- SSL 다운로드 후 저장 위치 기억해놓기
+
+## Python으로 CRUD Operation 수행
+
+```python
+python -m venv venv
+.\venv\Scripts\activate
+
+pip install mysql-connector-python
+
+# CRUD Operation
+python crud.py         # 연결 확인
+python insert.py       # 행 추가
+python select_db.py    # 검색
+python update.py       # 업데이트
+python delete.py       # 삭제
+```
+
+```python
+# crud.py
+import os
+import mysql.connector
+from mysql.connector import errorcode
+
+config={
+    "host" : "kdmysql.mysql.database.azure.com",
+    "user" : "kidong",
+    "password" : "Pa#$.12341234",
+    "database" : "db",
+    "client_flags" : [mysql.connector.ClientFlag.SSL],
+    "ssl_ca" : "C:\DigiCertGlobalRootCA.crt.pem"
+}
+
+try:
+    conn = mysql.connector.connect(**config)
+    print("서버에 연결됨")
+except mysql.connector.Error as err:
+    if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+        print("사용자나 암호가 정확하지 않습니다.")
+    elif err.errno == errorcode.ER_BAD_DB_ERROR:
+        print("데이터베이스가 존재하지 않습니다.")
+    else:
+        print(err)
+```
+
+<br>
+
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/5713185f-616d-4e49-81e7-6847436667d6">
+
+```python
+# insert.py
+import os
+import mysql.connector
+from mysql.connector import errorcode
+
+config={
+    "host" : "kdmysql.mysql.database.azure.com",
+    "user" : "kidong",
+    "password" : "Pa#$.12341234",
+    "database" : "db",
+    "client_flags" : [mysql.connector.ClientFlag.SSL],
+    "ssl_ca" : "C:\DigiCertGlobalRootCA.crt.pem" # 
+}
+conn = mysql.connector.connect(**config)
+
+cursor = conn.cursor()
+
+# 이미 테이블이 있다면 삭제
+cursor.execute("DROP TABLE IF EXISTS book;")
+
+# book 테이블 생성
+cursor.execute("CREATE TABLE book (title VARCHAR(50), author VARCHAR(50), publisher VARCHAR(40));")
+print(" book 테이블 생성 완료")
+
+# book 테이블 변경(한글이 깨지지 않도록)
+cursor.execute("ALTER TABLE db.book CONVERT TO CHARSET utf8mb4")
+
+# 데이터 추가
+cursor.execute("INSERT INTO book (title, author, publisher) VALUES (%s, %s, %s);", ("마케팅 불변의 법칙", "알 리스, 잭 트라우트", "마인드맵"))
+print(cursor.rowcount, " 데이터 행이 추가됨")
+
+cursor.execute("INSERT INTO book (title, author, publisher) VALUES (%s, %s, %s);", ("부의 미래", "앨빈 토플러", "청림"))
+print(cursor.rowcount, " 데이터 행이 추가됨")
+
+conn.commit()
+cursor.close()
+```
+
+<br>
+
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/515e270b-56e4-471b-ae6d-b4cf52144f85">
+
+```python
+# select_db.py
+import os
+import mysql.connector
+from mysql.connector import errorcode
+
+config={
+    "host" : "kdmysql.mysql.database.azure.com",
+    "user" : "kidong",
+    "password" : "Pa#$.12341234",
+    "database" : "db",
+    "client_flags" : [mysql.connector.ClientFlag.SSL],
+    "ssl_ca" : "C:\DigiCertGlobalRootCA.crt.pem"
+}
+conn = mysql.connector.connect(**config)
+
+cursor = conn.cursor()
+
+cursor.execute("SELECT * FROM book;")
+rows = cursor.fetchall()
+print(cursor.rowcount, "개의 데이터 행 검색됨")
+
+for row in rows:
+    print("데이터 행 = (%s, %s, %s)" % (str(row[0]), str(row[1]), str(row[2])))
+
+conn.commit()
+cursor.close()
+conn.close()
+```
+
+<br>
+
+<img width="484" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/59af8bef-739f-4adf-9d0a-8a895e6aef60">
+
+```python
+# update.py
+import os
+import mysql.connector
+from mysql.connector import errorcode
+
+config={
+    "host" : "kdmysql.mysql.database.azure.com",
+    "user" : "kidong",
+    "password" : "Pa#$.12341234",
+    "database" : "db",
+    "client_flags" : [mysql.connector.ClientFlag.SSL],
+    "ssl_ca" : "C:\DigiCertGlobalRootCA.crt.pem"
+}
+conn = mysql.connector.connect(**config)
+
+cursor = conn.cursor()
+
+cursor.execute("UPDATE book SET publisher = %s WHERE title = %s;",\
+               ("비즈니스 맵", "마케팅 불변의 법칙"))
+print(cursor.rowcount, "행이 수정됨")
+
+conn.commit()
+cursor.close()
+conn.close()
+```
+
+<br>
+
+<img width="585" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/80daa6e2-7394-41f3-bdfa-3d827ad9fb35">
+
+```python
+# delete.py
+import os
+import mysql.connector
+from mysql.connector import errorcode
+
+config={
+    "host" : "kdmysql.mysql.database.azure.com",
+    "user" : "kidong",
+    "password" : "Pa#$.12341234",
+    "database" : "db",
+    "client_flags" : [mysql.connector.ClientFlag.SSL],
+    "ssl_ca" : "C:\DigiCertGlobalRootCA.crt.pem"
+}
+conn = mysql.connector.connect(**config)
+
+cursor = conn.cursor()
+
+cursor.execute("DELETE FROM book WHERE title = %(param1)s;", {'param1' : '부의 미래'})
+
+print(cursor.rowcount, "개 행이 삭제됨")
+
+conn.commit()
+cursor.close()
+conn.close()
+```
+
+<br><br>
+
+# Azure Machine Learning Studio
+
