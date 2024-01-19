@@ -1,4 +1,7 @@
-## Azure Cosmos DB
+# Azure Cosmos DB
+
+## Azure에서 사전 설정
+
 <img width="700" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/6921f30f-ff93-47e6-b9d7-611906509a63">
 <img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a5715c9d-7c9a-4513-ac5f-f7baa574ac43">
 
@@ -16,7 +19,9 @@ az cosmosdb create --name $cosmosdbAccount --resource-group $resourceGrp --locat
 az cosmosdb keys list --type connection-strings --resource-group $resourceGrp --name $cosmosdbAccount
 ```
 
-```python
+## VSCode 사전 설정 
+
+```
 # 1. 가상 환경
 python -m venv venv       # 가상환경 만들기
 .\venv\Scripts\activate   # 가상 환경 접속
@@ -25,13 +30,38 @@ python -m venv venv       # 가상환경 만들기
 pip install pymongo python-dotenv
 
 # 3. .env 파일 생성 & 연결 문자열 넣어주기
+```
 
-# 4. crud.py 파일 생성
+<br>
+
+## CRUD Operation
+
+```
+# 1. crud.py 파일 생성
 python crud.py            # 파일 실행
 
-# 5. insert-document 파일 생성
+# 2. insert-document 파일 생성
 python insert-document.py # 파일 실행
+
+# 3. insert-document 파일 생성
+python insert-document.py # 파일 실행
+
+# 4. insert-multidocument 파일 생성
+python insert-document.py # 파일 실행
+
+# 5. select-document 파일 생성
+python select-document.py # 파일 실행
+
+# 6. update-document 파일 생성
+python update-document.py # 파일 실행
+
+# 7. delete-document 파일 생성
+python delete-document.py # 파일 실행행
 ```
+
+<br>
+
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/232efb9e-9663-4f63-a71e-115954289e21">
 
 ```python
 # crud.py
@@ -67,6 +97,10 @@ else:
     print("컬렉션(collection) 사용 : '{}'\n".format(COLLECTION_NAME))
 ```
 
+<br>
+
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4f21f7c0-eea6-42dd-a30b-573acace2bdc">
+
 ```python
 # insert-document.py
 import os, sys
@@ -91,9 +125,129 @@ book = {
 result = collection.insert_many(book)
 print("추가된 문서 _id : {}\n".format(result.inserted_ids[0]))
 ```
+
 <br>
 
-<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/232efb9e-9663-4f63-a71e-115954289e21">
-<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4f21f7c0-eea6-42dd-a30b-573acace2bdc">
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7e8041cf-f0fc-4c8b-b731-3eff35c9e5d4">
 
-## 
+```python
+# insert-multidocument.py
+import os, sys
+from random import randint
+import pymongo
+from dotenv import load_dotenv
+
+load_dotenv()
+CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
+DB_NAME = "products"
+COLLECTION_NAME = "books"
+
+client = pymongo.MongoClient(CONNECTION_STRING)
+db = client[DB_NAME] # 데이터 베이스
+collection = db[COLLECTION_NAME] # Collection
+books = [
+    {
+        "_id" : 1,
+        "category" : "Marketing, Sales",
+        "name" : "마케팅 불변의 법칙",
+        "author" : "알 리스, 잭 트라우트",
+        "publisher" : "비즈니스"
+    },
+    {
+        "_id" : 2,
+        "category" : "Marketing, Sales",
+        "name" : "정상에서 만납시다",
+        "author" : "지그지글러",
+        "quantity" : 1,
+    }
+]
+result = collection.insert_many(books)
+print("추가된 문서 _id : {}\n".format(result.inserted_ids[0]))
+
+```
+
+<br>
+
+<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/c2775c82-2f21-4a91-b455-df6e11f695c9">
+<img width="635" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/9512775c-2080-4dbe-9dbe-0520a11e1c79">
+
+```python
+# select-document.py
+import os, sys
+from random import randint
+import pymongo
+from dotenv import load_dotenv
+
+load_dotenv()
+CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
+DB_NAME = "products"
+COLLECTION_NAME = "books"
+
+client = pymongo.MongoClient(CONNECTION_STRING)
+db = client[DB_NAME] # 데이터 베이스
+collection = db[COLLECTION_NAME] # Collection
+
+# find_doc = collection.find_one({"category" : "Marketing, Sales"}) # 하나만 찾는 경우
+# print(find_doc)
+
+find_docs = collection.find({"category" : "Marketing, Sales"}) # 여러 개 찾는 경우
+for doc in find_docs:
+    print(doc)
+```
+
+<br>
+
+<img width="575" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/4c01ef9b-321f-4533-ab3c-d8747598f8ac">
+
+```python
+# update-document.py
+import os, sys
+from random import randint
+import pymongo
+from dotenv import load_dotenv
+
+load_dotenv()
+CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
+DB_NAME = "products"
+COLLECTION_NAME = "books"
+
+client = pymongo.MongoClient(CONNECTION_STRING)
+db = client[DB_NAME] # 데이터 베이스
+collection = db[COLLECTION_NAME] # Collection
+
+findValue = {"category" : "Marketing, Sales"}
+newValue = {"$set" : {"category" : "Business, Money"}}
+
+collection.update_one(findValue, newValue) # 찾은 데이터 하나만 바꿔줌
+# collection.update_many(findValue, newValue) # 여러 개를 바꿔주려는 경우 
+```
+
+<br>
+
+<img width="650" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7b32dd5f-9853-4dc0-bccf-98af344d19d9">
+
+```python
+# delete-document.py
+import os, sys
+from random import randint
+import pymongo
+from dotenv import load_dotenv
+
+load_dotenv()
+CONNECTION_STRING = os.environ.get("COSMOS_CONNECTION_STRING")
+DB_NAME = "products"
+COLLECTION_NAME = "books"
+
+client = pymongo.MongoClient(CONNECTION_STRING)
+db = client[DB_NAME] # 데이터 베이스
+collection = db[COLLECTION_NAME] # Collection
+
+findValue = {"category" : "Marketing, Sales"}
+
+collection.delete_one(findValue) # 찾은 데이터 하나만 삭제
+# collection.delete_many(findValue) # 찾은 데이터 모두 삭제
+```
+
+<br>
+
+# 
