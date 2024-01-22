@@ -58,3 +58,17 @@ pip install jupyter notebook    # 주피터 노트북 설
 jupyter notebook                # 주피터 노트북 실행
 ```
 
+<br>
+
+<img width="723" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/798b4c48-9dfd-47f4-a7dc-fa34f49501c8">
+
+```python
+import torch
+
+# GPU 정보 출력
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print("사용 중인 디바이스:", device)
+```
+
+- conda로 가상 환경을 생성하고 torch를 설치한 이후 vscode로 들어가서 kernel에서 해당 가상 환경을 골라준다
+- 위의 명령어를 실행했을 때 cpu가 아니라 cuda가 출력되면, 컴퓨터의 내장 GPU를 사용할 수 있는 상태가 된 것이다
