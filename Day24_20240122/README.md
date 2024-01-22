@@ -72,3 +72,10 @@ print("사용 중인 디바이스:", device)
 
 - conda로 가상 환경을 생성하고 torch를 설치한 이후 vscode로 들어가서 kernel에서 해당 가상 환경을 골라준다
 - 위의 명령어를 실행했을 때 cpu가 아니라 cuda가 출력되면, 컴퓨터의 내장 GPU를 사용할 수 있는 상태가 된 것이다
+
+<br>
+
+<img width="728" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a19ee13a-5759-4590-9cb1-48ece10700ee">
+
+- 나아가 vscode의 terminal에서 Powershell이 아닌 Command Prompt를 열어서 가상 환경을 활성화할 수 있다
+- "conda env list", "activate (가상 환경 이름)"으로 가상 환경을 활성화할 수 있다
