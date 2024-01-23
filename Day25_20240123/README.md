@@ -37,7 +37,10 @@
 <img width="600" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/3c7558ee-d820-4f14-9669-6f718369e2ba">
 <img width="600" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/43ae3f2e-28bc-4300-824a-f7cb66ae71dd">
 
- - 3x3 필터와 padding=1을 사용해서 이미지 크기는 유지하고 채널만 늘리다가, max_pooling으로 줄인다
- - 기존의 AlexNet보다 훨씬 깊게 만들었다는 특징이 있다
+- VGGNet은 합성곱층의 파라미터 수를 줄이고 훈련 시간을 개선하려고 탄생했다
+- 즉, 네트워크를 깊게 만드는 것이 성능에 어떤 영향을 미치는지 확인하고자 나온 것이다
+- 따라서 VGG 연구팀은 깊이의 영향만 최대한 확인하고자 합성곱층에서 사용하는 필터/커널의 크기를 가장 작은 3x3으로 고정했
+- 3x3 필터와 padding=1을 사용해서 이미지 크기는 유지하고 채널만 늘리다가, max_pooling으로 줄인다
+- 기존의 AlexNet보다 훨씬 깊게 만들었다는 특징이 있다고 볼 수 있다
 
 <br>
