@@ -66,15 +66,16 @@ SKT FLY AI Challenger 4th Member, 20231218-20240229
 
 <br>
 
-### Day 24~25 : AI Convergence Programming
+### Day 24~26 : AI Convergence Programming
 - Day24_20240122 : Pytorch Basic
-- Day25_20240123 :
+- Day25_20240123 : Image Classification(LeNet ~ ResNet), Object Detection(R-CNN)
+- Day26_20240124 : NLP(Embedding, Word2Vec, Transformer)
 
 <br>
 
 ### Day 26~28 : OpenCV Programming
-- Day26_20240124 :
-- Day27_20240125 :
+- Day26_20240124 : OpenCV Basic
+- Day27_20240125 : 
 - Day28_20240126 :
 
 <br>
