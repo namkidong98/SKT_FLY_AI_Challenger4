@@ -44,3 +44,30 @@
 - 기존의 AlexNet보다 훨씬 깊게 만들었다는 특징이 있다고 볼 수 있다
 
 <br>
+
+## GoogLeNet
+<img width="600" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/cf9adf28-2eeb-41ed-aaae-456cbbadcb95">
+
+- GoogLeNet은 주어진 하드웨어 자원을 최대한 효율적으로 이용하면서 학습 능력은 극대화할 수 있는 깊고 넓은 신경망
+- 깊고 넓은 신경망을 위해 GoogLeNet은 인셉션(Inception) 모듈을 추가
+- 인셉션 모듈에서 특징을 효율적으로 추출하기 위해 1x1, 3x3, 5x5 합성곱 연산을 각각 수행
+- 3x3 MaxPooling은 입력과 출력의 높이와 너비가 같아야 하므로 풀링 연산에서는 드물게 패딩을 추가해야 한다
+- 기존 CNN이 합성곱, 풀링, 완전연결층이 서로 밀집하게 연결되어 있는 반면(dense)
+- 관련성(correlation)이 높은 노드끼리만 연결하는 희소 연결(sparse) 방법으로 연산량이 적어지며 과적합도 해결
+
+<br>
+
+## ResNet
+221번
+
+# 객체 인식을 위한 신경망
+
+## R-CNN
+
+<br>
+
+# 이미지 분할을 위한 신경망
+
+## Mask R-CNN
+
+
