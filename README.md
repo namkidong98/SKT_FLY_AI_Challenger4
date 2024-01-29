@@ -74,19 +74,19 @@ SKT FLY AI Challenger 4th Member, 20231218-20240229
 <br>
 
 ### Day 26~28 : OpenCV Programming
-- Day26_20240124 : OpenCV Basic
-- Day27_20240125 : 
-- Day28_20240126 :
+- Day26_20240124 : OpenCV (1) - OpenCV Basic, Window Control, Event control, Drawing
+- Day27_20240125 : OpenCV (2) - Picture Element Processing, Image to Text, Tesseract
+- Day28_20240126 : OpenCV (3) - Blurring, Sharpening, Canny Edge, Interpolation, Transform(Affine, Perspective Projection)
 
 <br>
 
-### Day 29~30 : ChatBot Programming
-- Day29_20240129 :
-- Day30_20240130 :
+### Day 29~30 : AI Modeling
+- Day29_20240129 : Streamlit, Making ChatBot by using ChatGPT_API
+- Day30_20240130 : 
 
 <br>
 
-### Day 31~33 : AI Modeling
+### Day 31~33 : ChatBot Programming
 - Day31_20240131 :
 - Day32_20240201 :
 - Day33_20240202 :
