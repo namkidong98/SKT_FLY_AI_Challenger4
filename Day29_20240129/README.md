@@ -1,12 +1,3 @@
-## GAN(Generative Adversarial Network)
- 
-<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/ce198156-c808-4522-b296-c1220e38de75">
-<img width="450" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/566d3a69-0226-406c-8653-172fde99ad77">
-
-- 
-
-<br>
-
 ## Generative AI
 
 ### chabot.py 생성하여 질문 작성 및 답변 얻어오기
@@ -122,3 +113,66 @@ if button_click:                  # button이 클릭되었을 때만
 
 - chatbot.py를 위와 같이 수정한 이후, streamlit run chatbot.py를 terminal에서 실행하면 위와 같은 웹 페이지가 나오게 된다
 - 텍스트 공간에 질문을 입력한 이후 run 버튼을 누르면 답을 아래에 적는게 나오게 된다
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/1ff3785a-3ad4-475a-98b7-5d016e4c34a9">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d73b0a48-adcb-45a7-9b7d-759b6fd7d51a">
+
+- Spinner는 웹에서 걸리는 시간에 버퍼링처럼 나타나는 부분을 의미한다
+- st.spinner와 st.success를 추가하여 위와 같이 화면을 표현할 수 있다
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/7a596391-794e-4334-93b2-8a4cb81edc71">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/11c2efb4-88b3-48ef-ad07-1ffc8beee045">
+
+```python
+import openai
+import streamlit as st
+
+OPENAI_API_KEY = ''
+OPENAI_API_ENDPOINT = 'https://sktfly2.openai.azure.com/'
+OPENAI_API_TYPE = 'azure'
+OPENAI_API_VERSION = '2023-05-15'   # 모델의 버전이 아니라 openai의 api의 버젼
+                                    # ChatGPT의 버전이랑은 무관
+
+openai.api_key = OPENAI_API_KEY
+openai.azure_endpoint = OPENAI_API_ENDPOINT
+openai.api_type = OPENAI_API_TYPE
+openai.api_version = OPENAI_API_VERSION
+
+
+st.header("Welcome to AI Poem", divider='rainbow')
+st.write("아름다운 시를 함께 지어BoA Yo~~!!")
+
+name = st.text_input("작가의 이름을 입력하세요")
+if name:
+    st.write(name + '님 반갑습니다')
+
+subject = st.text_input("시의 주제를 입력하세요")
+content = st.text_area("시의 내용을 입력하세요")
+
+button_click = st.button("Run")
+if button_click:
+    with st.spinner("Please wait..."):
+        result = openai.chat.completions.create(
+            model='dev-model',
+            temperature=1,  # 0이 기본값이고 1이면 보다 창의적인 답을 제시
+            messages=[
+                {'role' : 'system', 'content' : 'You are a helpful assistant.'},
+                {'role':'user','content' : "작가의 이름은 " + name},
+                {'role':'user','content' : "시의 주제는 " + subject},
+                {'role':'user','content' : "시의 내용은 " + content},
+                {'role':'user','content' : "이 정보로 시를 생성해줘"},  # 명령을 내리는 부분
+            ]
+        )
+    st.success("Done!:sunglasses:")
+    st.write(result.choices[0].message.content)    # 0번째 대답을 가져와서 화면에 출력
+```
+
+- 이처럼 이름, 시의 주제와 내용을 입력 받아 시를 창작해주는 작업도 수행할 수 있다
+
+
+<br>
+
