@@ -53,8 +53,6 @@ def DatabaseConfig():
 
 <br>
 
-### 
-
 ```python
 import pymysql
 import sys
@@ -105,6 +103,94 @@ finally:
 
 - 명령 프롬프트에서 "python ./create_train_data_table.py"로 파일을 실행시킨다
 - mysql에 접속되어 있는 프롬프트에서 "show tables;"를 하면 chatbot_train_data 테이블이 추가된 것을 알 수 있다
+
+<br>
+
+```python
+import pymysql
+import openpyxl
+import sys
+sys.path.append('c:/src/chatbot')
+from config.DatabaseConfig import * # DB 접속 정보 불러오기
+
+# 학습 데이터 초기화
+def all_clear_train_data(db):
+    # 기존 학습 데이터 삭제
+    sql = '''
+            delete from chatbot_train_data
+        '''
+    with db.cursor() as cursor:
+        cursor.execute(sql)
+
+    # auto increment 초기화
+    sql = '''
+    ALTER TABLE chatbot_train_data AUTO_INCREMENT=1
+    '''
+    with db.cursor() as cursor:
+        cursor.execute(sql)
+
+
+# db에 데이터 저장
+def insert_data(db, xls_row):
+    intent, ner, query, answer, answer_img_url = xls_row
+
+    sql = '''
+        INSERT chatbot_train_data(intent, ner, query, answer, answer_image) 
+        values(
+         '%s', '%s', '%s', '%s', '%s'
+        )
+    ''' % (intent.value, ner.value, query.value, answer.value, answer_img_url.value)
+
+    # 엑셀에서 불러온 cell에 데이터가 없는 경우, null 로 치환
+    sql = sql.replace("'None'", "null")
+
+    with db.cursor() as cursor:
+        cursor.execute(sql)
+        print('{} 저장'.format(query.value))
+        db.commit()
+
+
+train_file = './train_data.xlsx'
+db = None
+try:
+    db = pymysql.connect(
+        host=DB_HOST,
+        user=DB_USER,
+        passwd=DB_PASSWORD,
+        db=DB_NAME,
+        charset='utf8'
+    )
+
+    # 기존 학습 데이터 초기화
+    all_clear_train_data(db)
+
+    # 학습 엑셀 파일 불러오기
+    wb = openpyxl.load_workbook(train_file)
+    sheet = wb['Sheet1']
+    for row in sheet.iter_rows(min_row=2): # 해더는 불러오지 않음
+        # 데이터 저장
+        insert_data(db, row)
+
+    wb.close()
+
+except Exception as e:
+    print(e)
+
+finally:
+    if db is not None:
+        db.close()
+```
+
+- qna 폴더에 train_data.xlsx을 넣고 load_train_data.py를 위의 코드로 작성한다
+- 그리고 프롬프트에서 "python ./load_train_data.py"로 실행하면 엑셀 파일을 읽어와 DB와 데이터를 동기화한다
+
+<br>
+
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/2067227d-8b5f-4367-9520-3d229c83e90e">
+<img width="450" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/69feeac7-b4f3-4e07-8217-3f6419608f41">
+
+- "select id,intent, ner, query from chatbot_train_data;"를 mysql로 되어있는 프롬프트에서 실행한다
+- select 구문을 실행하면 chatbot_train_data 테이블에 엑셀 내용과 동일하게 저장된 모습을 확인할 수 있다
 
 <br>
 
