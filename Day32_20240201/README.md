@@ -34,8 +34,6 @@
 
 <br><br>
 
-### 유dp 
-
 ```shell
 DB_HOST = "172.23.254.237" # ipconfig로 본인 무선 LAN의 IP로 설정
 DB_USER = "root"
