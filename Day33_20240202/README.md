@@ -538,7 +538,8 @@ print("F1-score: {:.1%}".format(f1_score(test_tags, pred_tags)))
 - /models/ner 폴더에 train_model.py 파일 생성 아래 코드 작성
 - "python train_model.py"로 실행하여 학습된 NER 모델 파일 생성(ner_model.h5)
 
-<img width="600" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d24c693e-def8-42ac-ae45-ee39f9fea490">
+<img width="500" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/d24c693e-def8-42ac-ae45-ee39f9fea490">
+<img width="400" alt="image" src="https://github.com/namkidong98/SKT_FLY_AI_Challenger4/assets/113520117/a68751ab-2f60-4c0c-975d-22f445279e08">
 
 <br><br>
 
