@@ -87,8 +87,8 @@ SKT FLY AI Challenger 4th Member, 20231218-20240229
 <br>
 
 ### Day 31~33 : ChatBot Programming
-- Day31_20240131 :
-- Day32_20240201 :
-- Day33_20240202 :
+- Day31_20240131 : Tokenizing, Word2Vec, 
+- Day32_20240201 : NER using Bidirectional LSTM, 
+- Day33_20240202 : ChatBot Engine
 
 <br>
